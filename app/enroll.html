@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Enroll - English School Automation Lab</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="logo">English School Automation Lab</div>
+    <nav class="nav">
+      <a href="index.html">Home</a>
+      <a href="enroll.html" class="active">Enroll</a>
+      <a href="#">Student Panel</a>
+      <a href="#">Teacher Panel</a>
+      <a href="#">Admin Panel</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>Enroll for English classes</h1>
+    <p>Please fill in the form below to enroll in our (mock) English course.</p>
+
+    <form class="form" id="enroll-form">
+      <div class="form-row">
+        <label for="fullName">Full name</label>
+        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
+      </div>
+
+      <div class="form-row">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" placeholder="john@example.com" required />
+      </div>
+
+      <div class="form-row">
+        <label for="phone">Phone number</label>
+        <input type="tel" id="phone" name="phone" placeholder="+48 123 456 789" />
+      </div>
+
+      <div class="form-row">
+        <label for="level">Current level</label>
+        <select id="level" name="level" required>
+          <option value="">-- select level --</option>
+          <option value="A1">A1 - Beginner</option>
+          <option value="A2">A2 - Elementary</option>
+          <option value="B1">B1 - Intermediate</option>
+          <option value="B2">B2 - Upper-intermediate</option>
+          <option value="C1">C1 - Advanced</option>
+          <option value="C2">C2 - Proficient</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="groupType">Group type</label>
+        <select id="groupType" name="groupType" required>
+          <option value="">-- select group type --</option>
+          <option value="standard">Standard (8 people)</option>
+          <option value="intensive">Intensive (6 people)</option>
+          <option value="1to1">1:1 Individual</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="notes">Notes (optional)</label>
+        <textarea id="notes" name="notes" rows="3" placeholder="Anything we should know?"></textarea>
+      </div>
+
+      <button type="submit" class="btn-primary">Submit enrollment</button>
+    </form>
+  </main>
+
+  <footer class="footer">
+    <p>English School Automation Lab · Enrollment form</p>
+  </footer>
+
+  <script>
+    // Simple mock logic — alert for now
+    const form = document.getElementById('enroll-form');
+
+    form.addEventListener('submit', function (event) {
+      event.preventDefault();
+      alert('Mock: enrollment submitted! (Later this will be replaced with validation + mock saving)');
+    });
+  </script>
+</body>
+</html>
