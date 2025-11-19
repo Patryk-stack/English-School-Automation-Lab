@@ -38,27 +38,29 @@
       </div>
 
       <div class="form-row">
-        <label for="level">Current level</label>
-        <select id="level" name="level" required>
-          <option value="">-- select level --</option>
-          <option value="A1">A1 - Beginner</option>
-          <option value="A2">A2 - Elementary</option>
-          <option value="B1">B1 - Intermediate</option>
-          <option value="B2">B2 - Upper-intermediate</option>
-          <option value="C1">C1 - Advanced</option>
-          <option value="C2">C2 - Proficient</option>
-        </select>
-      </div>
+  <label for="level">Current level</label>
+  <select id="level" name="level" required>
+    <option value="">-- select level --</option>
+    <option value="unknown">I don't know my level</option>
+    <option value="A1">A1 - Beginner</option>
+    <option value="A2">A2 - Elementary</option>
+    <option value="B1">B1 - Intermediate</option>
+    <option value="B2">B2 - Upper-intermediate</option>
+    <option value="C1">C1 - Advanced</option>
+    <option value="C2">C2 - Proficient</option>
+  </select>
+</div>
+
 
       <div class="form-row">
-        <label for="groupType">Group type</label>
-        <select id="groupType" name="groupType" required>
-          <option value="">-- select group type --</option>
-          <option value="standard">Standard (8 people)</option>
-          <option value="intensive">Intensive (6 people)</option>
-          <option value="1to1">1:1 Individual</option>
-        </select>
-      </div>
+  <label for="groupType">Lesson type</label>
+  <select id="groupType" name="groupType" required>
+    <option value="">-- select lesson type --</option>
+    <option value="standard">Standard group</option>
+    <option value="1to1">1:1 Individual</option>
+  </select>
+</div>
+
 
       <div class="form-row">
         <label for="notes">Notes (optional)</label>
