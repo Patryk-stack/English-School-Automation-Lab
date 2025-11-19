@@ -4,6 +4,39 @@
   <meta charset="UTF-8" />
   <title>Enroll - English School Automation Lab</title>
   <link rel="stylesheet" href="styles.css" />
+  <style>
+    .form-section-title {
+      margin-top: 12px;
+      margin-bottom: 4px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      color: #374151;
+    }
+
+    .form-error {
+      margin-top: 8px;
+      color: #b91c1c;
+      font-size: 0.9rem;
+      min-height: 1.2em;
+    }
+
+    .form-success {
+      margin-top: 8px;
+      color: #065f46;
+      font-size: 0.9rem;
+      min-height: 1.2em;
+    }
+
+    .checkbox-row {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 8px;
+    }
+
+    .checkbox-row input[type="checkbox"] {
+      margin-top: 4px;
+    }
+  </style>
 </head>
 <body>
   <header class="topbar">
@@ -18,70 +51,200 @@
   </header>
 
   <main class="container">
-    <h1>Enroll for English classes</h1>
-    <p>Please fill in the form below to enroll in our (mock) English course.</p>
+    <h1>Enroll for English course</h1>
+    <p>Please fill in the form below. This mock form is based on a real language school enrollment flow.</p>
 
-    <form class="form" id="enroll-form">
+    <form class="form" id="enroll-form" novalidate>
+      <!-- Contact person -->
+      <p class="form-section-title">Contact person</p>
+
       <div class="form-row">
-        <label for="fullName">Full name</label>
-        <input type="text" id="fullName" name="fullName" placeholder="John Doe" required />
+        <label for="contactName">Your full name</label>
+        <input
+          type="text"
+          id="contactName"
+          name="contactName"
+          placeholder="John Smith"
+          required
+        />
       </div>
 
       <div class="form-row">
-        <label for="email">Email address</label>
-        <input type="email" id="email" name="email" placeholder="john@example.com" required />
+        <label for="contactEmail">Your email</label>
+        <input
+          type="email"
+          id="contactEmail"
+          name="contactEmail"
+          placeholder="john@example.com"
+          required
+        />
       </div>
 
       <div class="form-row">
-        <label for="phone">Phone number</label>
-        <input type="tel" id="phone" name="phone" placeholder="+48 123 456 789" />
+        <label for="contactPhone">Your phone number</label>
+        <input
+          type="tel"
+          id="contactPhone"
+          name="contactPhone"
+          placeholder="+48 123 456 789"
+          required
+        />
+      </div>
+
+      <!-- Who is the course for -->
+      <p class="form-section-title">Who is this course for?</p>
+
+      <div class="form-row">
+        <label for="courseFor">Course for</label>
+        <select id="courseFor" name="courseFor" required>
+          <option value="">-- select option --</option>
+          <option value="self">Myself (adult)</option>
+          <option value="child">My child</option>
+        </select>
+      </div>
+
+      <!-- Student details -->
+      <p class="form-section-title">Student details</p>
+
+      <div class="form-row">
+        <label for="studentName">Student name</label>
+        <input
+          type="text"
+          id="studentName"
+          name="studentName"
+          placeholder="Anna Smith"
+          required
+        />
       </div>
 
       <div class="form-row">
-  <label for="level">Current level</label>
-  <select id="level" name="level" required>
-    <option value="">-- select level --</option>
-    <option value="unknown">I don't know my level</option>
-    <option value="A1">A1 - Beginner</option>
-    <option value="A2">A2 - Elementary</option>
-    <option value="B1">B1 - Intermediate</option>
-    <option value="B2">B2 - Upper-intermediate</option>
-    <option value="C1">C1 - Advanced</option>
-    <option value="C2">C2 - Proficient</option>
-  </select>
-</div>
-
-
-      <div class="form-row">
-  <label for="groupType">Lesson type</label>
-  <select id="groupType" name="groupType" required>
-    <option value="">-- select lesson type --</option>
-    <option value="standard">Standard group</option>
-    <option value="1to1">1:1 Individual</option>
-  </select>
-</div>
-
-
-      <div class="form-row">
-        <label for="notes">Notes (optional)</label>
-        <textarea id="notes" name="notes" rows="3" placeholder="Anything we should know?"></textarea>
+        <label for="ageGroup">Age group</label>
+        <select id="ageGroup" name="ageGroup" required>
+          <option value="">-- select age group --</option>
+          <option value="child_4_7">Child 4–7</option>
+          <option value="child_8_12">Child 8–12</option>
+          <option value="teen_13_19">Teen 13–19</option>
+          <option value="adult_19_plus">Adult 19+</option>
+        </select>
       </div>
 
-      <button type="submit" class="btn-primary">Enroll to course</button>
+      <!-- Level and lesson type -->
+      <p class="form-section-title">Course details</p>
+
+      <div class="form-row">
+        <label for="level">Current English level</label>
+        <select id="level" name="level" required>
+          <option value="">-- select level --</option>
+          <option value="unknown">I don't know my level</option>
+          <option value="A1">A1 - Beginner</option>
+          <option value="A2">A2 - Elementary</option>
+          <option value="B1">B1 - Intermediate</option>
+          <option value="B2">B2 - Upper-intermediate</option>
+          <option value="C1">C1 - Advanced</option>
+          <option value="C2">C2 - Proficient</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="groupType">Lesson type</label>
+        <select id="groupType" name="groupType" required>
+          <option value="">-- select lesson type --</option>
+          <option value="standard">Standard group</option>
+          <option value="1to1">1:1 Individual</option>
+        </select>
+      </div>
+
+      <div class="form-row">
+        <label for="location">Preferred location</label>
+        <select id="location" name="location" required>
+          <option value="">-- select location --</option>
+          <option value="debica">Dębica</option>
+          <option value="tarnow">Tarnów</option>
+          <option value="online">Online</option>
+        </select>
+      </div>
+
+      <!-- Notes -->
+      <p class="form-section-title">Additional information</p>
+
+      <div class="form-row">
+        <label for="notes">Additional notes (optional)</label>
+        <textarea
+          id="notes"
+          name="notes"
+          rows="3"
+          placeholder="Anything we should know? e.g. goals, preferred days, previous experience."
+        ></textarea>
+      </div>
+
+      <!-- Consent -->
+      <p class="form-section-title">Consent</p>
+
+      <div class="form-row checkbox-row">
+        <input type="checkbox" id="consent" name="consent" />
+        <label for="consent">
+          I accept the privacy policy and consent to processing my data in order to be contacted about the course.
+        </label>
+      </div>
+
+      <p id="form-error" class="form-error" aria-live="polite"></p>
+      <p id="form-success" class="form-success" aria-live="polite"></p>
+
+      <button type="submit" class="btn-primary">Submit enrollment</button>
     </form>
   </main>
 
   <footer class="footer">
-    <p>English School Automation Lab · Enrollment form</p>
+    <p>English School Automation Lab · Enrollment form (mock)</p>
   </footer>
 
   <script>
-    // Simple mock logic — alert for now
     const form = document.getElementById('enroll-form');
+    const errorBox = document.getElementById('form-error');
+    const successBox = document.getElementById('form-success');
 
     form.addEventListener('submit', function (event) {
       event.preventDefault();
-      alert('Mock: enrollment submitted! (Later this will be replaced with validation + mock saving)');
+      errorBox.textContent = '';
+      successBox.textContent = '';
+
+      const requiredFields = [
+        { id: 'contactName', label: 'Your full name' },
+        { id: 'contactEmail', label: 'Your email' },
+        { id: 'contactPhone', label: 'Your phone number' },
+        { id: 'courseFor', label: 'Course for' },
+        { id: 'studentName', label: 'Student name' },
+        { id: 'ageGroup', label: 'Age group' },
+        { id: 'level', label: 'Current English level' },
+        { id: 'groupType', label: 'Lesson type' },
+        { id: 'location', label: 'Preferred location' }
+      ];
+
+      const missing = [];
+
+      requiredFields.forEach(field => {
+        const el = document.getElementById(field.id);
+        if (!el.value || el.value.trim() === '') {
+          missing.push(field.label);
+        }
+      });
+
+      const consent = document.getElementById('consent');
+
+      if (!consent.checked) {
+        missing.push('Consent');
+      }
+
+      if (missing.length > 0) {
+        errorBox.textContent =
+          'Please fill in all required fields and accept the consent. Missing: ' +
+          missing.join(', ') + '.';
+        return;
+      }
+
+      // Mock "saving" the enrollment
+      successBox.textContent = 'Mock: enrollment submitted successfully. We will contact you soon.';
+      form.reset();
     });
   </script>
 </body>
